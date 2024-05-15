@@ -11,7 +11,7 @@ import os, random, csv
 import matplotlib.pyplot as plt
 
 NOTES_PATH = r'C:\Users\tomjb\Documents\Obsidian\Notes\School'
-SAVE_FILE =   'box-order.csv'
+SAVE_FILE =   'save.csv'
 NOTES_PER_BOX = [20, 10, 3, 2, 1]
 STARTING_BOX = 1
 
@@ -22,6 +22,10 @@ class Note:
 
 
 def get_notes_values(file) -> dict:
+    if not os.path.isfile(file):
+        with open(file, "w") as csvfile:
+            csvfile.write("name,value")
+        print("WARNING: made a new blank save file")
     notes_values = {}
     with open(file, "r") as csvfile:
         for row in csv.DictReader(csvfile):
