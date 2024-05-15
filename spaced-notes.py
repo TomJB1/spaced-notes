@@ -93,7 +93,6 @@ def get_outcome(notes_values:dict, name)->dict:
     except ValueError:
             return None
     note_value = int(notes_values[name])
-    print(response)
     match(response):
         case 0:
             notes_values[name] = 0
@@ -126,7 +125,6 @@ if __name__ == "__main__":
     notes_values = get_notes_values(SAVE_FILE)
     ## sort notes into 'boxes' based on value
     sorted_notes, notes_values = sort_notes(notes, notes_values)
-    print(sorted_notes)
     ## print number of notes in each box
     i=0
     for box in sorted_notes:
