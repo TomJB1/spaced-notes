@@ -9,11 +9,15 @@ a session is created [str, ...]
 from dataclasses import dataclass
 import os, random, csv
 import matplotlib.pyplot as plt
+import sys
 
 NOTES_PATH = r'C:\Users\tomjb\Documents\Obsidian\Notes\School'
 SAVE_FILE =   'save.csv'
 NOTES_PER_BOX = [20, 10, 3, 2, 1]
 STARTING_BOX = 1
+
+if(len(sys.argv)>1):
+    NOTES_PATH = sys.argv[1]
 
 @dataclass
 class Note:
